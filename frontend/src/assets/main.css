@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: linear-gradient(90deg, #46178f, #e91e63);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.header h1 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.back-btn {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #2563eb;
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #46178f;
+}
+
+.form-container, .result-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-group {
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #e91e63;
+  box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+}
+
+.create-btn, .reset-btn {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.3s;
+}
+
+.create-btn {
+  background-color: #e91e63;
+  color: white;
+}
+
+.create-btn:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.create-btn:not(:disabled):hover {
+  background-color: #c2185b;
+  transform: scale(1.02);
+}
+
+.reset-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.reset-btn:hover {
+  background-color: #2563eb;
+  transform: scale(1.02);
+}
+
+.result-container h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #46178f;
+  margin-bottom: 1rem;
+}
+
+.result-container p {
+  font-size: 1rem;
+  color: #374151;
+  margin: 0.5rem 0;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #e91e63;
+}
+
+.pin {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #46178f;
+  background-color: #f3e8ff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+}

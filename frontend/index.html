@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Room</title>
+    <!-- Vue.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <!-- Tailwind CSS for styling (similar to Kahoot's vibrant design) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+        .kahoot-gradient {
+            background: linear-gradient(90deg, #46178f, #e91e63);
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="min-h-screen flex flex-col">
+        <!-- Header (similar to Kahoot's header) -->
+        <header class="kahoot-gradient text-white p-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Room Creation</h1>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Back</button>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow flex items-center justify-center p-4">
+            <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+                <h2 class="text-xl font-semibold mb-4 text-center">Create a New Room</h2>
+
+                <!-- Room Creation Form -->
+                <div v-if="!roomCreated">
+                    <div class="mb-4">
+                        <label for="roomName" class="block text-gray-700 mb-2">Room Name</label>
+                        <input 
+                            v-model="roomName" 
+                            type="text" 
+                            id="roomName" 
+                            placeholder="Enter room name" 
+                            class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        >
+                    </div>
+                    <button 
+                        @click="createRoom" 
+                        :disabled="!roomName"
+                        class="w-full bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-lg disabled:bg-gray-400"
+                    >
+                        Create Room
+                    </button>
+                </div>
+
+                <!-- Room Created Display -->
+                <div v-else class="text-center">
+                    <h3 class="text-lg font-semibold mb-2">Room Created!</h3>
+                    <p class="text-gray-700 mb-2">Room Name: <span class="font-bold">{{ roomName }}</span></p>
+                    <p class="text-gray-700 mb-4">PIN: <span class="text-2xl font-bold text-purple-600">{{ pin }}</span></p>
+                    <button 
+                        @click="resetForm" 
+                        class="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-lg"
+                    >
+                        Create Another Room
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                roomName: '',
+                roomCreated: false,
+                pin: null
+            },
+            methods: {
+                // Simulate backend logic to create a room and generate a PIN
+                createRoom() {
+                    if (!this.roomName) return;
+
+                    // Simulate backend: Generate a random 6-digit PIN
+                    this.pin = Math.floor(100000 + Math.random() * 900000).toString();
+                    
+                    // Mark room as created
+                    this.roomCreated = true;
+                },
+                // Reset form to create another room
+                resetForm() {
+                    this.roomName = '';
+                    this.roomCreated = false;
+                    this.pin = null;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
